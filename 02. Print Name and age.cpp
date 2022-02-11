@@ -1,4 +1,4 @@
-//Link to the problem: https://www.codingninjas.com/codestudio/guided-paths/basics-of-c/content/118781/offering/1380852
+// Link to the problem: https://www.codingninjas.com/codestudio/guided-paths/basics-of-c/content/118781/offering/1380852
 
 #include <iostream>
 using namespace std;
