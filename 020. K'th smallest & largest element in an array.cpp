@@ -1,5 +1,13 @@
 // Problem: https://www.codingninjas.com/codestudio/guided-paths/basics-of-c/content/118787/offering/1381279?leftPanelTab=0
 
+/* Iterative Approach
+1) We first sort the Array so that we can access the K smallest elements at the beginning and K largest elements at the end.
+2) We keep a counter to store the number of distinct elements encountered till now.
+3) As soon count reaches K we print the current element and break.
+4) Similarly, we do it for the Kth largest element as well.
+5) If our counter remains < K after the whole loop we report that answer doesn't exist and print -1. */
+
+
 #include <bits/stdc++.h>
 using namespace std;
 
