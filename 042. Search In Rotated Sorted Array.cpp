@@ -1,48 +1,63 @@
 // Problem: https://www.codingninjas.com/codestudio/guided-paths/data-structures-algorithms/content/118820/offering/1381878?leftPanelTab=2
 
-int binarySearch(int* arr, int low, int high, int key)
+/*
+    Time complexity : O(log(N))
+    Space complextiy : O(1)
+
+    where N is the size of the input array
+*/
+
+int search(int* arr, int n, int key)
 {
-    int mid;
-    while(low <= high)
+    
+    // Initialize start and end
+    int st = 0, end = n - 1;
+
+    // Performing binary search
+    while (st <= end)
     {
-        mid = low + (low + high)/2;
-        if(arr[mid] == key)
+        
+        // Get the middle element
+        int mid = st + (end - st) / 2;
+
+        // The middle element is the one we are searching for
+        if (arr[mid] == key)
         {
             return mid;
         }
-        else if(arr[mid] < key)
+        else if (arr[mid] >= arr[st])
         {
-            high = mid - 1;
+            
+            // Element lies towards left of mid
+            if (arr[st] <= key && key <= arr[mid])
+            {
+                end = mid - 1;
+            }
+            
+            // Element lies towards right of mid    
+            else
+            {
+                st = mid + 1;
+            }
         }
-        else 
-        {
-            low = mid + 1;
-        }
-    }
-    return -1;
-}
-
-int search(int* arr, int n, int key) 
-{
-    int mx = arr[0];
-    int idx; // Index at which the highest element is present
-    for(int i=1; i<n; i++)
-    {
-        if(arr[i]<mx)
-        {
-            idx = i - 1;
-            break;
-        }
+        
         else
         {
-            mx = arr[i];
+            
+            // Element lies towards right of mid
+            if (arr[end] >= key && key >= arr[mid])
+            {
+                st = mid + 1;
+            }
+            
+            // Element lies towards left of mid
+            else
+            {
+                end = mid - 1;
+            }
         }
     }
-    int ans = binarySearch(arr, 0, idx, key);
-    if(ans == -1)
-    {
-        ans = binarySearch(arr, idx+1, n-1, key);
-    }
-    return ans;
     
+    // Element not found
+    return -1;
 }
