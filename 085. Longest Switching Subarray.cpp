@@ -20,7 +20,7 @@ int switchingSubarray(vector<int> &arr, int n)
         int e = 2;
         while(e<n)
         {
-            if(arr[s] != arr[s+2])
+            if(arr[s] != arr[e])
             {
                 s++;
                 e++;
