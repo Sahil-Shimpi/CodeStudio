@@ -8,16 +8,20 @@
 */
 
 // Function to multiply two matrices.
-vector<vector<int>> multiply(vector<vector<int>> a,vector<vector<int>> b){
+vector<vector<int>> multiply(vector<vector<int>> a,vector<vector<int>> b)
+{
 
     const int mod = 1e9 + 7;
     
     // To store the resultant matrix.
     vector<vector<int>> c(2,vector<int>(2,0));
 
-    for(int i = 0; i < 2; i++){
-        for(int j = 0; j < 2; j++){
-            for(int k = 0; k < 2; k++){
+    for(int i = 0; i < 2; i++)
+    {
+        for(int j = 0; j < 2; j++)
+        {
+            for(int k = 0; k < 2; k++)
+            {
                 c[i][k] = (c[i][k] + (long long)((long long)a[i][j] * (long long)b[j][k])) % mod;
             }
         }
@@ -27,13 +31,15 @@ vector<vector<int>> multiply(vector<vector<int>> a,vector<vector<int>> b){
 }
 
 // Function to calclate n'th power of a matrix.
-vector<vector<int>> matrix_power(vector<vector<int>> coef ,int n){
+vector<vector<int>> matrix_power(vector<vector<int>> coef ,int n)
+{
 
     // To store the resultant matrix.
     vector<vector<int>> res = {{1,0},{0,1}};
 
     // While loop till n > 0.
-    while(n){
+    while(n)
+    {
         // If n is odd, multiply res with coef.
         if(n % 2) res = multiply(res,coef);
 
@@ -47,7 +53,8 @@ vector<vector<int>> matrix_power(vector<vector<int>> coef ,int n){
 }
 
 
-int fibonacciNumber(int n){
+int fibonacciNumber(int n)
+{
 
     // Declaring the coef matrix.
     vector<vector<int>> coef={{0,1},{1,1}};
