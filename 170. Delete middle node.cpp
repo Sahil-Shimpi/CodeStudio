@@ -7,11 +7,14 @@
     where N is the number of nodes in the Linked List.
 */
 
-Node<int>* deleteMiddle(Node<int>* head){
+Node<int>* deleteMiddle(Node<int>* head)
+{
 
     // Base Cases.
-    if(head == NULL || head -> next == NULL){
-        if(head != NULL){
+    if(head == NULL || head -> next == NULL)
+    {
+        if(head != NULL)
+        {
             delete head;
         }
         return NULL;
@@ -23,10 +26,12 @@ Node<int>* deleteMiddle(Node<int>* head){
     // Pointer to previous node of slow pointer.
     Node<int>* prevSlow = NULL;
 
-    while(fast != NULL){
+    while(fast != NULL)
+    {
 
         // If nodes are even, break.
-        if(fast -> next == NULL){
+        if(fast -> next == NULL)
+        {
             break;
         }
 
@@ -36,7 +41,8 @@ Node<int>* deleteMiddle(Node<int>* head){
     }
 
     // If head is the middle node.
-    if(prevSlow == NULL){
+    if(prevSlow == NULL)
+    {
         Node<int>* temp = head;
         head = head -> next;
         temp -> next = NULL;
